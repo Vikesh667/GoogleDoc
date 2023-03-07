@@ -4,6 +4,7 @@ import Header from '../component/Header/Header';
 import jsPDF from 'jspdf';
 import TitleBar from '../component/TitaleBar/TitleBar';
 import html2canvas from "html2canvas"
+import {BsFillArrowDownCircleFill} from 'react-icons/bs'
 function Home() {
     const [color,setColor] = useState("black")
     const [size,setSize] = useState(5)
@@ -22,19 +23,19 @@ const onImageChange = (event) => {
     
 function handleClick(data) {
     console.log(data)
-    if (data == 100) {
+    if (data == "100%") {
       select.current.style.transform = 'scale(1)';
     }
-    if (data == 50) {
+    if (data == "50%") {
       select.current.style.transform = 'scale(0.5)';
     }
-    if (data == 75) {
+    if (data == "75%") {
       select.current.style.transform = 'scale(0.7)';
     }
-    if (data == 150) {
+    if (data == "150%") {
       select.current.style.transform = 'scale(1.5)';
     }
-    if (data == 200) {
+    if (data == "200%") {
       select.current.style.transform = 'scale(2)';
     }
   }
@@ -140,24 +141,15 @@ function handleClick(data) {
         }
        
     }
-    async function handleDownload() {
-        const sheetContent = document.querySelector(`.${style.para}`);
-        const canvas = await html2canvas(sheetContent, { dpi: 300 });
-        const imageData = canvas.toDataURL("image/png", 1.0);
-        const pdfDoc = new jsPDF({
-          orientation: "portrait",
-          unit: "mm",
-          format: "a4",
-          compress: false,
-        });
-        pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
-        pdfDoc.save("document.pdf");
-      }
+const handleDownload=()=>{
+  window.print()
+}
 
 
 
 
   return (
+<> 
     <div className={style.main}>
         <TitleBar />
       <Header 
@@ -167,12 +159,12 @@ function handleClick(data) {
       onImageChange={onImageChange}
       handleClick={handleClick}
        />
- <div>
+     <div>
     </div>
        <div  className={style.WrittingBox}>
       <div ref={select} className={style.writtingPad}>
-      <button onClick={handleDownload}><img className={style.DownloadIcon} src="https://icon-library.com/images/download-icon-png/download-icon-png-14.jpg" /></button>
- <div   ref={myDiv} className={style.para} contentEditable={true}>
+      <button onClick={handleDownload} className={style.DownloadIcon}><BsFillArrowDownCircleFill/></button>
+      <div   ref={myDiv} className={style.para} contentEditable={true}>
  {image ?
     <img   src={image} alt="preview image" />: ""
 }
@@ -180,7 +172,9 @@ function handleClick(data) {
 </div>
 </div>
     </div>
+    </>
   )
+
 }
 
 export default Home
