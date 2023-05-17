@@ -2,7 +2,7 @@ import React ,{useState , useRef  } from 'react'
 import style from "./Home.module.css"
 import Header from '../component/Header/Header';
 import jsPDF from 'jspdf';
-import TitleBar from '../component/TitaleBar/TitleBar';
+import TitleBar from '../component/NavBar/NavBar';
 import html2canvas from "html2canvas"
 import {BsFillArrowDownCircleFill} from 'react-icons/bs'
 function Home() {

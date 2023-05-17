@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./TitleBar.module.css";
+import style from "./NavBar.module.css";
 
 export default function TitleBar() {
   return (

@@ -27,3 +27,11 @@
 margin-top: -.6rem;
 position: absolute;
 }
+input{
+  outline: none;
+  border: none;
+}
+select{
+  outline:none;
+  border: none;
+}

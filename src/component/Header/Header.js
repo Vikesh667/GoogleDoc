@@ -1,5 +1,5 @@
-import React  from "react";
-import style from '../Header.module.css'
+import React from "react";
+import style from "../Header.module.css";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
@@ -14,50 +14,76 @@ import SuperscriptIcon from "@mui/icons-material/Superscript";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
 import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
-import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
-import UndoIcon from '@mui/icons-material/Undo';
-import RedoIcon from '@mui/icons-material/Redo';
-import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import ImageIcon from '@mui/icons-material/Image';
+import StrikethroughSIcon from "@mui/icons-material/StrikethroughS";
+import UndoIcon from "@mui/icons-material/Undo";
+import RedoIcon from "@mui/icons-material/Redo";
+import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+import ImageIcon from "@mui/icons-material/Image";
 
-const Header = ({ handleTextStyle ,handleColor,onImageChange,handleClick}) => {
-
-
-
-
- 
+const Header = ({
+  handleTextStyle,
+  handleColor,
+  onImageChange,
+  handleClick,
+}) => {
   const data = [
-    { icon: <UndoIcon/>},
-    { icon: <RedoIcon/> },
-    { icon: <LocalPrintshopIcon/>  },
-    { icon: <FormatBoldIcon />,},
-    {  icon: <FormatItalicIcon />,},
-    {icon: <FormatUnderlinedIcon />,},
-    {  icon: <StrikethroughSIcon /> },
+    { icon: <UndoIcon /> },
+    { icon: <RedoIcon /> },
+    { icon: <LocalPrintshopIcon /> },
+    { icon: <FormatBoldIcon /> },
+    { icon: <FormatItalicIcon /> },
+    { icon: <FormatUnderlinedIcon /> },
+    { icon: <StrikethroughSIcon /> },
     { icon: <FormatSizeIcon /> },
-    {  icon: <FormatAlignCenterIcon /> },
+    { icon: <FormatAlignCenterIcon /> },
     { icon: <FormatAlignLeftIcon /> },
     { icon: <FormatAlignRightIcon /> },
-    {icon: <FormatIndentDecreaseIcon /> },
+    { icon: <FormatIndentDecreaseIcon /> },
     { icon: <FormatIndentIncreaseIcon /> },
     { icon: <SubscriptIcon /> },
     { icon: <SuperscriptIcon /> },
-    { icon: <UnfoldMoreIcon />, input: <input onChange={(e)=>handleColor(e.target.value)} type="color"/> },
+    {
+      icon: <UnfoldMoreIcon />,
+      input: (
+        <input onChange={(e) => handleColor(e.target.value)} type="color" />
+      ),
+    },
     { icon: <TextDecreaseIcon /> },
-    {  icon: <TextIncreaseIcon /> },
-    {  icon: <FormatListBulletedIcon /> },
-    {  icon: <FormatListNumberedIcon /> },
-    {  icon: <label htmlFor="input"><ImageIcon /></label> ,input: <input id="input" hidden  type="file"  onChange={onImageChange} className="filetype" />},
-    {icon: <select  className={style.scaleBar}  onChange={(e) =>handleClick(e.target.value)}
-    >
-      <option>100%</option>
-      <option>50%</option>
-      <option>75%</option>
-      <option>150%</option>
-      <option>200%</option>
-    </select>}
+    { icon: <TextIncreaseIcon /> },
+    { icon: <FormatListBulletedIcon /> },
+    { icon: <FormatListNumberedIcon /> },
+    {
+      icon: (
+        <label htmlFor="input">
+          <ImageIcon />
+        </label>
+      ),
+      input: (
+        <input
+          id="input"
+          hidden
+          type="file"
+          onChange={onImageChange}
+          className="filetype"
+        />
+      ),
+    },
+    {
+      icon: (
+        <select
+          className={style.scaleBar}
+          onChange={(e) => handleClick(e.target.value)}
+        >
+          <option>100%</option>
+          <option>50%</option>
+          <option>75%</option>
+          <option>150%</option>
+          <option>200%</option>
+        </select>
+      ),
+    },
   ];
 
   return (
@@ -65,7 +91,7 @@ const Header = ({ handleTextStyle ,handleColor,onImageChange,handleClick}) => {
       {data.map((item, i) => {
         return (
           <h2 onClick={() => handleTextStyle(i)} key={i}>
-            {item.icon} 
+            {item.icon}
             {item.input}
           </h2>
         );
